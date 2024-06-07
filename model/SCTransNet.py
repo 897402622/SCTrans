@@ -17,7 +17,7 @@ import torch.nn.functional as F
 import ml_collections
 from einops import rearrange
 import numbers
-from thop import profile
+# from thop import profile
 
 def get_CTranS_config():
     config = ml_collections.ConfigDict()
