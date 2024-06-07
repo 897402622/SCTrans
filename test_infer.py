@@ -426,12 +426,22 @@ def test():
     tbar = tqdm(test_loader)
     with torch.no_grad():
         for idx_iter, (img, size, img_dir) in enumerate(tbar):
-            img = Variable(img).cuda()
-            pred = net.forward(img).cuda()
+            # img = Variable(img).cuda()
+            # pred = net.forward(img).cuda()
             # pred = pred[:, :, :size[0], :size[1]]
-            pred = pred[:, :, :size[0], :size[1]].cuda()
+            # pred = pred[:, :, :size[0], :size[1]].cuda()
             # gt_mask = gt_mask[:, :, :size[0], :size[1]]
             # gt_mask = gt_mask[:, :, :size[0], :size[1]].cuda()
+            pred=img
+            _,_,h,w=img.shape
+            pred=Variable(pred).cuda()
+            img = Variable(img).cuda()
+            for i in range(0, h, 512):
+                for j in range(0,w,512):
+                    sub_img=img[:,:,i:i+512,j:j+512]
+                    sub_pred=net.forward(sub_img)
+                    pred[:,:,i:i+512,j:j+512]=sub_pred
+            pred = pred[:,:,:size[0],:size[1]]
 
             # Fix  threshold ##########################################################
             # IOU
