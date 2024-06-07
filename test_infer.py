@@ -383,9 +383,9 @@ parser = argparse.ArgumentParser(description="PyTorch BasicIRSTD test")
 parser.add_argument('--ROC_thr', type=int, default=10, help='num')
 parser.add_argument("--model_names", default=['SCTrans'], type=list,
                     help="model_name: 'ACM', 'Ours01', 'DNANet', 'ISNet', 'ACMNet', 'Ours01', 'ISTDU-Net', 'U-Net', 'RISTDnet'")
-parser.add_argument("--pth_dirs", default=["PRCV/SCTransNet_225_best.pth.tar"], type=list)
-parser.add_argument("--dataset_dir", default='/home/Newdisk/wyt', type=str, help="train_dataset_dir")
-parser.add_argument("--dataset_names", default=['PRCV'], type=list,
+parser.add_argument("--pth_dirs", default=["WideIRSTD/SCTransNet_225_best.pth.tar"], type=list)
+parser.add_argument("--dataset_dir", default='/datasets', type=str, help="train_dataset_dir")
+parser.add_argument("--dataset_names", default=['WideIRSTD'], type=list,
                     help="dataset_name: 'NUAA-SIRST', 'NUDT-SIRST', 'IRSTD-1K', 'SIRST3', 'NUDT-SIRST-Sea'")
 parser.add_argument("--img_norm_cfg", default=None, type=dict,
                     help="specific a img_norm_cfg, default=None (using img_norm_cfg values of each dataset)")
